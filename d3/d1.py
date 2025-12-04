@@ -6,30 +6,31 @@ Dies ist eine temporäre Skriptdatei.
 """
 
 def d3_1():
-    c=0
+    joltage=0
     file=open("input.txt","r")
-    for line in file:
-        line=line.strip("\n")
-        line=[int(x) for x in line]
-        #print(line)
-        max0=max(line)
-        maxindex=line.index(max0)
-        if maxindex==len(line)-1:
+   
+    for bank in file:
+        bank=bank.strip("\n")
+        bank=[int(x) for x in bank]
+        max0=max(bank)
+        maxindex=bank.bank(max0)
+       
+        if maxindex==len(bank)-1:
             max1=max0
-            line.remove(max0)
-            max0=max(line)
+            bank.remove(max0)
+            max0=max(bank)
             
         else:
-            max1=max(line[(maxindex+1):])
-        #line.remove(maxi2)
-        #print(max0,max1)
+            max1=max(bank[(maxindex+1):])
+
         num=int(str(max0)+str(max1))
-        c+=num
+        joltage+=num
+    
     file.close()
-    return c
+    return joltage
 
 
-def d3_2():
+def d3_2(): #funktioniert nicht
     file=open("input.txt","r")
     result=0
     
@@ -68,7 +69,7 @@ def d3_2():
     return result
             
 
-def d3_2_neu():
+def d3_2_neu(): #funktioniert nicht
     file=open("input.txt","r")
     
     
@@ -171,28 +172,8 @@ def d3_2_neu():
                 line[ind]=0
                 c+=1
                 
-                
-            
-               
-                    
-                    
-            
-            
+ 
         print(voltage)
             
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-    
-                
 
-        
-print(d3_2_neu())
+print(d3_1())
