@@ -15,6 +15,7 @@ def d4_1():
     for line in file:
         line=line.strip("\n")
         map0.append(line)
+    file.close()
         
     for i in range(len(map0)):
         for j in range(len(map0[i])):
@@ -43,6 +44,7 @@ def d4_2():
                 line.append(char)
                 
             map0.append(line)
+    file.close()
    
     
     for k in range(1000):
@@ -60,7 +62,7 @@ def d4_2():
                             map0[i][j]="."
                         else:
                             durchgang+=1
-                        
+                       
     return result
                     
                  
