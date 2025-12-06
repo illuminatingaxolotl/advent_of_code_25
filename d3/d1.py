@@ -13,7 +13,7 @@ def d3_1():
         bank=bank.strip("\n")
         bank=[int(x) for x in bank]
         max0=max(bank)
-        maxindex=bank.bank(max0)
+        maxindex=bank.index(max0)
        
         if maxindex==len(bank)-1:
             max1=max0
@@ -30,150 +30,46 @@ def d3_1():
     return joltage
 
 
-def d3_2(): #funktioniert nicht
+def d3_2(): 
+    joltage=0
     file=open("input.txt","r")
-    result=0
-    
-    for line in file:
-        neudrei=len(line)-13
-        line=line.strip("\n")
-        line=[int(x) for x in line]
+    res2=[]
+   
+    for bank in file:
+        bank=bank.strip("\n")
+        bank=[int(x) for x in bank]
+        print(bank)
+        
+        remove=len(bank)-12
+        res2.append(0)
+       # print(remove)
+       
+        res=[]
         
         
-        front=line[:(neudrei+1)]
-        
-        
-        
-        maxfrontin=front.index(max(front))
-        remcount=0
-        for i in range(len(front)):
+        i=0
+        while len(res)<13:
+            window0=i
+            window1=i+remove
             
-           
-                linewithountfront=line[maxfrontin:]
-           
-                remcount=len(line)-len(linewithountfront)
-                #print(remcount)
-                while remcount<neudrei:
-                    linewithountfront.remove(min(linewithountfront))
-                    remcount+=1
-        #print(linewithountfront)
-                    
-        joltage=""
+            m=max(bank[window0:window1])
+            
+            ind=((bank[window0:window1]).index(m))+i
+            #print(ind)
+            
+            res.append([ind,m])
+            bank[ind]=0
+            
+            
+            
+            i+=1
+            
         
-        
-        for element in linewithountfront:
-            joltage+=str(element)
-        joltage=int(joltage)
-        result+=joltage#
-    file.close()
-    return result
+            
+        print(res)
+    
+           
+          
             
 
-def d3_2_neu(): #funktioniert nicht
-    file=open("input.txt","r")
-    
-    
-    for line in file:
-        
-        
-        
-        line=line.strip("\n")
-        line=[int(x) for x in line]
-        
-        revline=[]
-        for i in range(len(line)):
-            revline.append(line[len(line)-i-1])
-        
-        
-        
-        c9=line.count(9)
-        c8=line.count(8)
-        c7=line.count(7)
-        c6=line.count(6)
-        c5=line.count(5)
-        c4=line.count(4)
-        c3=line.count(3)
-        c2=line.count(2)
-        c1=line.count(1)
-        voltage=[]
-        for element in line:
-            voltage.append(0)
-            
-        c=0
-        
-        revline,line=line,revline
-        
-        
-        
-        for i in range(c9):
-                if c>11:break
-                ind=line.index(9)
-                
-                voltage[ind]=line[ind]
-                line[ind]=0
-                
-                c+=1
-                
-           
-        for i in range(c8):
-                if c>11:break
-                ind=line.index(8)
-                voltage[ind]=line[ind]
-                line[ind]=0
-                c+=1
-                
-        for i in range(c7):
-                if c>11:break
-                ind=line.index(7)
-                voltage[ind]=line[ind]
-                line[ind]=0
-                c+=1
-                
-        for i in range(c6):
-                if c>11:break
-                ind=line.index(6)
-                voltage[ind]=line[ind]
-                line[ind]=0
-                c+=1
-                
-        for i in range(c5):
-                if c>11:break
-                ind=line.index(5)
-                voltage[ind]=line[ind]
-                line[ind]=0
-                c+=1
-                
-        for i in range(c4):
-                if c>11:break
-                ind=line.index(4)
-                voltage[ind]=line[ind]
-                line[ind]=0
-                c+=1
-                
-                
-        for i in range(c3):
-                if c>11:break
-                ind=line.index(3)
-                voltage[ind]=line[ind]
-                line[ind]=0
-                c+=1
-                
-        for i in range(c2):
-                if c>11:break
-                ind=line.index(2)
-                voltage[ind]=line[ind]
-                line[ind]=0
-                c+=1
-                
-        for i in range(c1):
-                if c>11:break
-                ind=line.index(1)
-                voltage[ind]=line[ind]
-                line[ind]=0
-                c+=1
-                
- 
-        print(voltage)
-            
-
-print(d3_1())
+print(d3_2())

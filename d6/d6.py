@@ -38,6 +38,7 @@ def d6_1():
                 calculated+=num
         result+=calculated
                 
+    file.close()    
                 
     return result
 
@@ -99,7 +100,9 @@ def d6_2():
                 calculated+=num
                 
         result+=calculated
-                       
+        
+    
+    file.close()                   
     return result
    
     
