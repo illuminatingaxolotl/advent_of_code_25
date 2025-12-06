@@ -33,41 +33,99 @@ def d3_1():
 def d3_2(): 
     joltage=0
     file=open("input.txt","r")
-    res2=[]
+    
    
     for bank in file:
+        
         bank=bank.strip("\n")
         bank=[int(x) for x in bank]
-        print(bank)
+        #print(bank)
+        #memory=[0 for x in bank]
         
-        remove=len(bank)-12
-        res2.append(0)
-       # print(remove)
+        
+        
+        start=len(bank)-13
+        #print(start)
+        current=bank[start]
+        currentid=start
+        mem=0
+        
+        print()
+        
+        mincount=0
+        for i in range(start+1):
+            #print(start-i)
+            mincount+=1
+            comp=bank[start-i]
+            compid=start-i
+            #print(comp)
+            
+            
+            if comp>=current:
+                current=comp
+                
+                for i in range(mincount):
+                    #print(bank[compid:])
+                    min0=min(bank[compid:])
+                   # print(min0)
+                    minindex=bank[compid:].index(min0)+compid
+                   # print(minindex)
+                    bank.pop(minindex)
+                   # print(bank[compid:])
        
-        res=[]
+                mincount=0
+                #print(compid)
+                
+                mem=compid
         
         
-        i=0
-        while len(res)<13:
-            window0=i
-            window1=i+remove
-            
-            m=max(bank[window0:window1])
-            
-            ind=((bank[window0:window1]).index(m))+i
-            #print(ind)
-            
-            res.append([ind,m])
-            bank[ind]=0
-            
-            
-            
-            i+=1
-            
+       # print(mem)
+      
+       
+      #print(bank)
+        bank=(bank[mem:])
+        print(bank)
+        #print(bank[compid:])
+        # while len(bank)>12:
+        #     bank.remove(min(bank))
         
+        
+        
+        joltage_line=""
+        
+        for num in bank:
+            joltage_line+=str(num)
             
-        print(res)
+        #print(joltage_line)
+            
+      
+        joltage+=int(joltage_line)
     
+            
+        
+
+    
+    file.close()
+    return joltage
+        
+        
+              
+        
+
+
+def getmax(l,memory):
+        
+        if len(l)==1:
+            return memory+str(l[0])
+        
+        else:
+            maxpos=l.index(max(l))
+            l[maxpos]=0
+            return getmax(l[maxpos:],memory)
+        
+        #return memory
+        
+        
            
           
             
