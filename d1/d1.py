@@ -34,7 +34,7 @@ def d1_1():
     
 def d1_2():
     wpos=50 #position of wheel
-    file=open("input2.txt","r")
+    file=open("input1.txt","r")
     zcount=0 #counts how often wheel reaches zero
     for line in file:
         line.strip("\n")

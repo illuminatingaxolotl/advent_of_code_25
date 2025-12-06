@@ -61,8 +61,6 @@ def d3_2():
                 for i in range(mincount):
  
                     min0=min(bank[compid:])
-                    #(bank[compid:]).remove(min0)
-                    
                     minindex=bank[compid:].index(min0)+compid
                     bank.pop(minindex)
                    
@@ -78,6 +76,7 @@ def d3_2():
         for num in bank:
             joltage_line+=str(num)
  
+        
         joltage+=int(joltage_line)
 
     file.close()
